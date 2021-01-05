@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneLine Calc</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+    <script defer type="text/javascript" src="calc.js"></script>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="row">
+
+            <h1>OneLine Calc</h1>
+
+
+            <div class="calc">
+
+                <div id="screen">
+
+                </div>
+
+                <div id="numbers">
+
+                    <button id="btn1" value="1">1</button>
+                    <button id="btn2" value="2">2</button>
+                    <button id="btn3" value="3">3</button>
+                    <button id="btn4" value="4">4</button>
+                    <button id="btn5" value="5">5</button>
+                    <button id="btn6" value="6">6</button>
+                    <button id="btn7" value="7">7</button>
+                    <button id="btn8" value="8">8</button>
+                    <button id="btn9" value="9">9</button>
+                    <button id="btn0" value="0">0</button>
+                    <button id="equal" value="=">=</button>
+
+                </div>
+
+
+
+                <div id="operators">
+
+                    <button id="add" value="+">+</button>
+                    <button id="minus" value="-">-</button>
+                    <button id="multiply" value="X">x</button>
+                    <button id="division" value="/">/</button>
+                    <button id="reset" value="reset">reset</button>
+                </div>
+
+
+            </div>
+
+            <div id="historyList">
+                <h2>Your History
+                    <button id="deleteAll">Delete all</button>
+                </h2>
+                <ul></ul>
+            </div>
+
+        </div>
+
+    </main>
+
+
+</body>
+
+</html>
