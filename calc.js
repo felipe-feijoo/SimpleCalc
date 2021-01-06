@@ -1,46 +1,34 @@
 let listOfInputs = [];
 let numberString = '';
+addEventToNumbers();
 addEventToOperators();
 
-for (x = 0; x <= 9; x++) {
-    addEventToNumbers(x);
+function addEventToNumbers() {
+    const listOfNumbers = document.getElementsByClassName('btnNum');
+    for (const number of listOfNumbers) {
+        number.addEventListener('click', () => {
+            const numberValue = number.value;
+            numberString += numberValue;
+            renderScreen(numberValue);
+        });
+    }
 }
 
-function addEventToNumbers(val) {
-    const numberBtn = document.getElementById(`btn${val}`);
-    numberBtn.addEventListener('click', () => {
-        const numberValue = numberBtn.value;
-        numberString += numberValue;
-        renderScreen(numberValue);
-    });
-}
-
-
-function addEventToOperators() {
-    const addBtn = document.getElementById('add');
-    const subBtn = document.getElementById('minus');
-    const divBtn = document.getElementById('division');
-    const mulBtn = document.getElementById('multiply');
+function addEventToOperators(){
+    const listOfOperators = document.getElementsByClassName('btnOp');
     const equalBtn = document.getElementById('equal');
     const resetBtn = document.getElementById('reset');
 
-    addBtn.addEventListener('click', () => {
-        calcInsights(addBtn);
-    });
-    subBtn.addEventListener('click', () => {
-        calcInsights(subBtn);
-    });
-    divBtn.addEventListener('click', () => {
-        calcInsights(divBtn);
-    });
-    mulBtn.addEventListener('click', () => {
-        calcInsights(mulBtn);
-    });
+    for (const operator of listOfOperators) {
+        operator.addEventListener('click',()=>{
+            calcInsights(operator);
+        });
+    }
     equalBtn.addEventListener('click', () => {
         calcInsights(equalBtn);
         if (listOfInputs.length > 0) {
             let result = calculate()
-            if(!isNaN(result)){
+            if (!isNaN(result)) {
                 renderScreen(result);
                 renderHistory(`${listOfInputs.join(' ')} ${result}`);
             }
@@ -53,7 +41,6 @@ function addEventToOperators() {
         renderScreen();
     });
 }
-
 
 function clearAll() {
     listOfInputs = [];
@@ -74,11 +61,9 @@ function calcInsights(element) {
     numberString = '';
 }
 
-
 function addToHistory(val) {
     listOfInputs.push(val);
 }
-
 
 
 function renderScreen(val = 'erase') {
@@ -94,7 +79,6 @@ function renderScreen(val = 'erase') {
         screen.textContent += `${val}`;
     }
 }
-
 
 function renderHistory(operation) {
 
@@ -120,13 +104,11 @@ function renderHistory(operation) {
     historyList.lastElementChild.appendChild(newEntry)
 }
 
-
 function deleteHistory(listOfEntries) {
     while (listOfEntries.lastElementChild) {
         listOfEntries.removeChild(listOfEntries.lastElementChild);
     }
 }
-
 
 function deleteEntry(entry) {
     const historyList = document.getElementById('historyList');
@@ -137,8 +119,6 @@ function deleteEntry(entry) {
         historyList.style = 'display:none';
     }
 }
-
-
 
 function calculate() {
     let result = 0;
